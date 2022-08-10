@@ -1,5 +1,14 @@
 import React from "react";
 import agent from "../../agent";
+import { connect } from "react-redux";
+import {
+    APPLY_TITLE_FILTER,
+} from "../../constants/actionTypes";
+
+const mapDispatchToProps = (dispatch) => ({
+    onSearchText: (title, pager, payload) =>
+        dispatch({ type: APPLY_TITLE_FILTER, title, pager, payload }),
+});
 
 class SearchBox extends React.Component {
     constructor(props) {
@@ -48,4 +57,4 @@ class SearchBox extends React.Component {
     }
 }
 
-export default SearchBox;
+export default connect(null, mapDispatchToProps)(SearchBox);
