@@ -1,5 +1,6 @@
 import Banner from "./Banner";
 import MainView from "./MainView";
+import SearchBox from "./SearchBox";
 import React from "react";
 import Tags from "./Tags";
 import agent from "../../agent";
@@ -8,6 +9,7 @@ import {
   HOME_PAGE_LOADED,
   HOME_PAGE_UNLOADED,
   APPLY_TAG_FILTER,
+  APPLY_TITLE_FILTER,
 } from "../../constants/actionTypes";
 
 const Promise = global.Promise;
@@ -19,6 +21,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
+  onSearchText: (title, pager, payload) =>
+    dispatch({ type: APPLY_TITLE_FILTER, title, pager, payload }),
   onClickTag: (tag, pager, payload) =>
     dispatch({ type: APPLY_TAG_FILTER, tag, pager, payload }),
   onLoad: (tab, pager, payload) =>
@@ -46,8 +50,8 @@ class Home extends React.Component {
     return (
       <div className="home-page">
         <Banner />
-
         <div className="container page">
+          <SearchBox onSearchText={this.props.onSearchText} />
           <Tags tags={this.props.tags} onClickTag={this.props.onClickTag} />
           <MainView />
         </div>
