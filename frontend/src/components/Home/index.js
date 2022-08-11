@@ -1,5 +1,6 @@
 import Banner from "./Banner";
 import MainView from "./MainView";
+
 import React from "react";
 import Tags from "./Tags";
 import agent from "../../agent";
@@ -46,7 +47,6 @@ class Home extends React.Component {
     return (
       <div className="home-page">
         <Banner />
-
         <div className="container page">
           <Tags tags={this.props.tags} onClickTag={this.props.onClickTag} />
           <MainView />
