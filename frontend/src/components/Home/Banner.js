@@ -9,7 +9,7 @@ const Banner = () => {
         <img src={logo} alt="banner" />
         <SearchBox />
       </div>
-    </div >
+    </div>
   );
 };
 

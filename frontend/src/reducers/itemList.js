@@ -53,7 +53,7 @@ const reducer = (state = {}, action) => {
         pager: action.pager,
         items: action.payload.items,
         itemsCount: action.payload.itemsCount,
-      }
+      };
     case HOME_PAGE_LOADED:
       return {
         ...state,
