@@ -13,7 +13,7 @@ import {
   APPLY_TITLE_FILTER,
 } from "../constants/actionTypes";
 
-const reducer = (state = {}, action) => {
+const reducer = (state = { title: "" }, action) => {
   switch (action.type) {
     case ITEM_FAVORITED:
     case ITEM_UNFAVORITED:
@@ -52,6 +52,7 @@ const reducer = (state = {}, action) => {
         ...state,
         pager: action.pager,
         items: action.payload.items,
+        title: action.title,
         itemsCount: action.payload.itemsCount,
       };
     case HOME_PAGE_LOADED:
