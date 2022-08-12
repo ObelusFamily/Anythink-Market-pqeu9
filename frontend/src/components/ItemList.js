@@ -5,15 +5,14 @@ import { connect } from "react-redux";
 
 const mapStateToProps = (state) => ({
   title: state.itemList.title,
-  tab: state.router.tab
 });
 
-const ItemList = ({ items, tab, title, pager, itemsCount, currentPage }) => {
+const ItemList = ({ items, title, pager, itemsCount, currentPage }) => {
   if (!items) {
     return <div className="py-4">Loading...</div>;
   }
 
-  if (items.length === 0 && tab === "all") {
+  if (items.length === 0 && title.length > 2) {
     return (
       <div
         id="empty"
